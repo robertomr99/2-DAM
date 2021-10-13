@@ -1,0 +1,4 @@
+Ej.1 - Mostrar los nombres de todas las carpetas que esten bajo una carpeta dada (recursividad).
+Ej.2 - Mostrar el total de directorios(carpetas) y archivos que esten bajo una carpeta dada (recursividad).
+
+Dime todos aquellos archivos donde su tamaño es mayor o menor a X 
