@@ -5,9 +5,10 @@ import java.awt.event.*;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class MiVentana extends java.awt.Frame {
+public class MiVentana extends JFrame {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -159,39 +160,39 @@ public class MiVentana extends java.awt.Frame {
 					JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
 			System.out.println("Has seleccionado la opción: " + opcSeleccionada);
 		});
-		
-		
-		JButton btnVentana= new JButton("VENTANA");
+
+		JButton btnVentana = new JButton("VENTANA");
 		btnVentana.setBounds(20, 240, 130, 20);
 		btnVentana.addActionListener(e -> {
 			
+			new FrmProductos();
+
 			// Creamos nuestro propio dialogo
-			
-			Dialog frmProducto = new Dialog(this, "Gestión de Productos", true); // -> Si esta true no nos permite pinchar en la ventana padre
-																			// -> Si es false si te deja acceder para seguir interactuan
-			frmProducto.setBounds(100,100,400,200);
-			frmProducto.addWindowListener(new WindowAdapter(){
-				public void windowClosing(WindowEvent we) {
-					frmProducto.dispose();
-					//ctrl.CtrtMiVentana.salir();
-				}
+
+			/*
+			 * Dialog frmProducto = new Dialog(this, "Gestión de Productos", true); // -> Si
+			 * esta true no nos permite pinchar en la ventana padre // -> Si es false si te
+			 * deja acceder para seguir interactuan frmProducto.setBounds(100,100,400,200);
+			 * frmProducto.addWindowListener(new WindowAdapter(){ public void
+			 * windowClosing(WindowEvent we) { frmProducto.dispose();
+			 * //ctrl.CtrtMiVentana.salir(); } }); frmProducto.setVisible(true);
+			 * 
+			 * });
+			 * 
+			 */
 		});
-			frmProducto.setVisible(true);
 			
-		});
+			add(btnVentana);
+			add(lstColores);
+			add(lstCiclos);
+			add(lstCiudades);
+			add(btnConfirmacion);
+			add(btnEntrada);
+			add(btnMensaje);
+
+			// add(txtComentarios);
+			// add(opcReembolso);
 
 		
-		add(btnVentana);
-		add(lstColores);
-		add(lstCiclos);
-		add(lstCiudades);
-		add(btnConfirmacion);
-		add(btnEntrada);
-		add(btnMensaje);
-
-		// add(txtComentarios);
-		// add(opcReembolso);
-
 	}
-
 }
