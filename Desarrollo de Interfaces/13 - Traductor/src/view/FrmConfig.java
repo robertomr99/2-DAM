@@ -20,6 +20,7 @@ public class FrmConfig extends JFrame {
 	public static JRadioButton rdbtnEspIng;
 	public static JRadioButton rdbtnIngEsp;
 	public static JRadioButton rdbtnIndiferente;
+	public static JCheckBox chcTotalPalabras;
 
 	public FrmConfig() {
 
@@ -35,7 +36,7 @@ public class FrmConfig extends JFrame {
 		lblPregunta.setBounds(40, 66, 138, 31);
 		contentPane.add(lblPregunta);
 
-		JCheckBox chcTotalPalabras= new JCheckBox("Total m\u00E1ximo palabras (0)");
+		chcTotalPalabras= new JCheckBox("Total m\u00E1ximo palabras (0)");
 		chcTotalPalabras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtNumeroPalabra.setEnabled(true);
@@ -51,6 +52,7 @@ public class FrmConfig extends JFrame {
 		txtNumeroPalabra.setBounds(297, 33, 86, 20);
 		contentPane.add(txtNumeroPalabra);
 		txtNumeroPalabra.setColumns(10);
+		txtNumeroPalabra.setEnabled(false);
 		
 		ButtonGroup bgTipoTraduccion = new ButtonGroup();
 

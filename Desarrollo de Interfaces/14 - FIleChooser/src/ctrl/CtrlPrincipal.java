@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -17,6 +18,9 @@ import model.Contacto;
 
 public class CtrlPrincipal {
 
+	public static ArrayList<Contacto> aContactos = new ArrayList<Contacto>();
+	public static File fileSelected;
+	
 	public static void inicio() {
 
 		new view.FrmPrincipal();
@@ -37,7 +41,7 @@ public class CtrlPrincipal {
 		int iBtnFch = selectorFch.showOpenDialog(null);
 
 		if (iBtnFch != JFileChooser.CANCEL_OPTION) {
-			File fileSelected = selectorFch.getSelectedFile();
+			fileSelected = selectorFch.getSelectedFile();
 
 			if (fileSelected != null && !fileSelected.getName().equals("")) {
 				ArrayList<Contacto> aContactos = leerContactos(fileSelected);
@@ -45,26 +49,29 @@ public class CtrlPrincipal {
 			}
 		}
 	}
-
+	
+	
 	public static void volcarContactos(ArrayList<Contacto> aContactos) {
+		
+		DefaultListModel model = new DefaultListModel();
 
 		String sNombre = "";
 		for (int i = 0; i < aContactos.size(); i++) {
 			sNombre = aContactos.get(i).getsNombre();
-			view.FrmPrincipal.lstContactos.add(sNombre);
-			// sTelefono = aContactos.get(i).getsTelefono();
+			model.addElement(sNombre);
+				// sTelefono = aContactos.get(i).getsTelefono();
 		}
+		view.FrmPrincipal.lstContactos.setModel(model);
+
 	}
 
 	public static ArrayList<Contacto> leerContactos(File fileSelected) {
-
-		ArrayList<Contacto> aContactos = new ArrayList<Contacto>();
 
 		try {
 			FileReader fchLectura = new FileReader(fileSelected);
 			BufferedReader bufLectura = new BufferedReader(fchLectura);
 
-			String sLineaLeida;
+			String sLineaLeida, sNombre, sTelefono;
 			sLineaLeida = bufLectura.readLine();
 
 			while (sLineaLeida != null) {
@@ -72,8 +79,8 @@ public class CtrlPrincipal {
 				// Fragmentamos la linea
 
 				StringTokenizer sCampo = new StringTokenizer(sLineaLeida, "#");
-				String sNombre = sCampo.nextToken();
-				String sTelefono = sCampo.nextToken();
+				sNombre = sCampo.nextToken();
+				sTelefono = sCampo.nextToken();
 
 				// Añadimos un nuevo objeto al array de personas
 

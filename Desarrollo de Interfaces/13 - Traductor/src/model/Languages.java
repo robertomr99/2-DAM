@@ -12,10 +12,13 @@ public class Languages {
 
 	public static ArrayList<String> aENGpalabras = new ArrayList<String>();
 	public static ArrayList<String> aESPpalabras = new ArrayList<String>();
+	
+	
 
 	public static void cargarLenguajes() {
 		
-		int iCast = Integer.parseInt(view.FrmConfig.txtNumeroPalabra.getText());
+		int iCast=0;
+		
 		String sPalabraEsp, sPalabraIng;
 
 		aENG.add("DOG");
@@ -39,8 +42,15 @@ public class Languages {
 		aESP.add("PELOTA");
 		aESP.add("VENTANA");
 		aESP.add("PUERTA");
-
-
+		
+		
+		if(view.FrmConfig.chcTotalPalabras.isSelected() && view.FrmConfig.txtNumeroPalabra.getText().equals(null)) {
+			iCast = Integer.parseInt(view.FrmConfig.txtNumeroPalabra.getText());
+		}else {
+			iCast = aENG.size();
+		}
+		
+		
 		for (int iContador = 0; iContador < iCast; iContador++) {
 			sPalabraEsp = aESP.get(iContador);
 			aESPpalabras.add(sPalabraEsp);
@@ -50,7 +60,7 @@ public class Languages {
 		}
 
 	}
-
+	
 	public static void ESP_ING() {
 		aPregunta.addAll(aESPpalabras);
 		aRespuesta.addAll(aENGpalabras);
@@ -64,8 +74,9 @@ public class Languages {
 	public static void Indiferente() {
 		aPregunta.addAll(aESPpalabras);
 		aPregunta.addAll(aENGpalabras);
-		aRespuesta.addAll(aESPpalabras);
+		
 		aRespuesta.addAll(aENGpalabras);
+		aRespuesta.addAll(aESPpalabras);
 
 	}
 
