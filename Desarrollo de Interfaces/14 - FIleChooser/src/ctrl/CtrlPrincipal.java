@@ -20,7 +20,7 @@ public class CtrlPrincipal {
 
 	public static ArrayList<Contacto> aContactos = new ArrayList<Contacto>();
 	public static File fileSelected;
-	
+
 	public static void inicio() {
 
 		new view.FrmPrincipal();
@@ -44,22 +44,21 @@ public class CtrlPrincipal {
 			fileSelected = selectorFch.getSelectedFile();
 
 			if (fileSelected != null && !fileSelected.getName().equals("")) {
-				ArrayList<Contacto> aContactos = leerContactos(fileSelected);
-				volcarContactos(aContactos);
+				aContactos = leerContactos(fileSelected);
+				volcarContactos();
 			}
 		}
 	}
-	
-	
-	public static void volcarContactos(ArrayList<Contacto> aContactos) {
-		
-		DefaultListModel model = new DefaultListModel();
+
+	public static void volcarContactos() {
+
+		DefaultListModel<String> model = new DefaultListModel<String>();
 
 		String sNombre = "";
 		for (int i = 0; i < aContactos.size(); i++) {
 			sNombre = aContactos.get(i).getsNombre();
 			model.addElement(sNombre);
-				// sTelefono = aContactos.get(i).getsTelefono();
+			// sTelefono = aContactos.get(i).getsTelefono();
 		}
 		view.FrmPrincipal.lstContactos.setModel(model);
 
@@ -103,6 +102,39 @@ public class CtrlPrincipal {
 		}
 
 		return aContactos;
+	}
+
+	public static void escribirFichero() {
+
+		try {
+
+			FileWriter fchEscritura = new FileWriter(fileSelected);
+			BufferedWriter bufEscritura = new BufferedWriter(fchEscritura);
+
+			String sLineaLeida = "";
+			String sSeparador = "#";
+
+			for (int iContador = 0; iContador < aContactos.size(); iContador++) {
+				sLineaLeida = aContactos.get(iContador).getsNombre() + sSeparador
+						+ aContactos.get(iContador).getsTelefono();
+				bufEscritura.write(sLineaLeida);
+				if (iContador < aContactos.size() - 1) {
+					bufEscritura.newLine();
+				}
+			}
+			
+			bufEscritura.close();
+			fchEscritura.close();
+			
+
+		} catch (FileNotFoundException e) {
+			System.err.println("Fichero no encontrado.");
+		}
+
+		catch (IOException e) {
+			System.err.println("Error accediendo al fichero.");
+		}
+
 	}
 
 }

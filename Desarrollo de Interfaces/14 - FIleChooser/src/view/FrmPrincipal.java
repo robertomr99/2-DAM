@@ -28,6 +28,8 @@ public class FrmPrincipal extends JFrame {
 	private JTextField txtTelefono;
 	public static JList lstContactos;
 	private JLabel lblTelefonoContacto;
+	private JLabel lblTelefono;
+	private JLabel lblNombre;
 
 	public FrmPrincipal() {
 
@@ -50,6 +52,11 @@ public class FrmPrincipal extends JFrame {
 		contentPane.add(btnOpenAgenda);
 
 		JButton btnSaveAgenda = new JButton("Guardas Agenda");
+		btnSaveAgenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrl.CtrlPrincipal.escribirFichero();
+			}
+		});
 		btnSaveAgenda.setBounds(176, 219, 140, 25);
 		contentPane.add(btnSaveAgenda);
 
@@ -61,14 +68,14 @@ public class FrmPrincipal extends JFrame {
 		contentPane.add(lblTelefonoContacto);
 
 		txtNombre = new JTextField();
-		txtNombre.setBounds(201, 60, 100, 25);
+		txtNombre.setBounds(201, 67, 100, 25);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		txtNombre.setVisible(false);
 
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
-		txtTelefono.setBounds(201, 96, 100, 25);
+		txtTelefono.setBounds(201, 111, 100, 25);
 		contentPane.add(txtTelefono);
 		txtTelefono.setVisible(false);
 
@@ -76,19 +83,16 @@ public class FrmPrincipal extends JFrame {
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String sNombre = txtNombre.getText();
-				String sTelefono = txtNombre.getText();
-				
+				String sTelefono = txtTelefono.getText();
+
 				int iContador = lstContactos.getSelectedIndex();
 				Contacto oContacto = CtrlPrincipal.aContactos.get(iContador);
-				
-				//ctrl.CtrlPrincipal.escribirFichero(oContacto);
-				
-				/*oContacto.setsNombre(sNombre);
-				oContacto.setsTelefono(sTelefono);*/
+				oContacto.setsNombre(sNombre);
+				oContacto.setsTelefono(sTelefono);
 			}
 		});
 
-		btnSave.setBounds(201, 139, 100, 25);
+		btnSave.setBounds(201, 147, 100, 25);
 		contentPane.add(btnSave);
 		btnSave.setVisible(false);
 
@@ -100,11 +104,11 @@ public class FrmPrincipal extends JFrame {
 				btnSave.setVisible(true);
 			}
 		});
-		btnEdit.setBounds(201, 175, 100, 25);
+		btnEdit.setBounds(201, 183, 100, 25);
 		contentPane.add(btnEdit);
 
 		lstContactos = new JList();
-		lstContactos.setBounds(25, 18, 140, 182);
+		lstContactos.setBounds(27, 18, 140, 182);
 
 		lstContactos.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
@@ -119,6 +123,15 @@ public class FrmPrincipal extends JFrame {
 			}
 		});
 		contentPane.add(lstContactos);
+
+		lblTelefono= new JLabel("Tel\u00E9fono: ");
+		lblTelefono.setBounds(200, 95, 79, 14);
+		contentPane.add(lblTelefono);
+		lblTelefono.setVisible(false);
+
+		lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(201, 50, 78, 14);
+		contentPane.add(lblNombre);
 
 		setVisible(true);
 	}
