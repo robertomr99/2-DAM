@@ -12,12 +12,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import ctrl.CtrlPrincipal;
 import model.Contacto;
-
 import java.awt.Color;
-import java.awt.List;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 

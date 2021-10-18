@@ -8,11 +8,11 @@ import model.Empleado;
 public class viewEmpleado {
 	public static InputStreamReader isr = new InputStreamReader(System.in);
 	public static BufferedReader teclado = new BufferedReader(isr);
-	private static Empleado oEmpleado = new Empleado();
+	public static Empleado oEmpleado = new Empleado();
 
 	public static void Crud_Empleado() throws IOException {
 
-		byte bOpcion, bPosicion;
+		byte bOpcion;
 		String sLineaLeida = "";
 
 		do {
@@ -24,7 +24,7 @@ public class viewEmpleado {
 			System.out.println("4.Añadir");
 			System.out.println("0.Salir\n");
 
-			System.out.println("Elige una opción:");
+			System.out.println("Elige una opción: ");
 
 			try {
 				sLineaLeida = teclado.readLine();
@@ -38,18 +38,18 @@ public class viewEmpleado {
 			switch (bOpcion) {
 
 			case 1:
-				listarTodo();
+				ctrl.CtrlPrincipal.listarTodo();
 				break;
 			case 2:
 				oEmpleado = ctrl.CtrlPrincipal.leerRegistro(pedirPosicion());
 				System.out.println(oEmpleado);
 				break;
 			case 3:
-				listarTodo();
+				ctrl.CtrlPrincipal.listarTodo();
 				ctrl.CtrlPrincipal.escribirRegistro(pedirPosicion(), agregarEmpleado());
 				break;
 			case 4:
-				ctrl.CtrlPrincipal.escribirRegistro(pedirPosicion(), agregarEmpleado());
+				ctrl.CtrlPrincipal.escribirRegistro(ctrl.CtrlPrincipal.buscarPosicion(), agregarEmpleado());
 				break;
 			case 0:
 				System.exit(0);
@@ -102,18 +102,6 @@ public class viewEmpleado {
 		}
 
 		return bPosicion = Byte.parseByte(sLineaLeida);
-	}
-
-	public static void listarTodo() {
-		int i = 0;
-		try {
-			for (i = 0; i < ctrl.CtrlPrincipal.fch.length(); i += Empleado.iLongReg) {
-				oEmpleado = ctrl.CtrlPrincipal.leerTodo();
-				System.out.println(oEmpleado);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

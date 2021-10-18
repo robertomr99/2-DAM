@@ -59,7 +59,7 @@ public class CtrlPrincipal {
 			sNombre = aContactos.get(i).getsNombre();
 			model.addElement(sNombre);
 			// sTelefono = aContactos.get(i).getsTelefono();
-		}
+		}	
 		view.FrmPrincipal.lstContactos.setModel(model);
 
 	}

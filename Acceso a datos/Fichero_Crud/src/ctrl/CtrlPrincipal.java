@@ -15,6 +15,7 @@ public class CtrlPrincipal {
 	}
 	
 	
+	
 	private void abrirFichero(String fileName) {
 		try {
 
@@ -178,5 +179,23 @@ public class CtrlPrincipal {
 
 		return new Empleado(sNombre, sApellidos, sEmail, iEdad, lTelefono, dSueldo);
 	}
+	
+	
+	public static int buscarPosicion() throws IOException {
+		int iLongitud = (int) (fch.length() / Empleado.iLongReg);
+		return iLongitud + 1;
+	}
+	
 
+	public static void listarTodo() {
+		int i = 0;
+		try {
+			for (i = 0; i < ctrl.CtrlPrincipal.fch.length(); i += Empleado.iLongReg) {
+				view.viewEmpleado.oEmpleado = ctrl.CtrlPrincipal.leerTodo();
+				System.out.println(view.viewEmpleado.oEmpleado);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
