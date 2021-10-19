@@ -38,14 +38,14 @@ public class viewEmpleado {
 			switch (bOpcion) {
 
 			case 1:
-				ctrl.CtrlPrincipal.listarTodo();
+				listarTodo();
 				break;
 			case 2:
 				oEmpleado = ctrl.CtrlPrincipal.leerRegistro(pedirPosicion());
 				System.out.println(oEmpleado);
 				break;
 			case 3:
-				ctrl.CtrlPrincipal.listarTodo();
+				listarTodo();
 				ctrl.CtrlPrincipal.escribirRegistro(pedirPosicion(), agregarEmpleado());
 				break;
 			case 4:
@@ -102,6 +102,18 @@ public class viewEmpleado {
 		}
 
 		return bPosicion = Byte.parseByte(sLineaLeida);
+	}
+	
+	public static void listarTodo() {
+		int i = 0;
+		try {
+			for (i = 0; i < ctrl.CtrlPrincipal.fch.length(); i += Empleado.iLongReg) {
+				view.viewEmpleado.oEmpleado = ctrl.CtrlPrincipal.leerTodo();
+				System.out.println(view.viewEmpleado.oEmpleado);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

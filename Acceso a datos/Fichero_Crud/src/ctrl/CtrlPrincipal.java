@@ -22,7 +22,7 @@ public class CtrlPrincipal {
 			fch = new RandomAccessFile(fileName, "rw"); // r -> Lectura / w -> Escritura / rw -> Lectura/Escritura
 
 		} catch (FileNotFoundException e) {
-			System.err.println("El fichero " + fileName + " no existe");
+			System.err.println("El fichero " + fileName + " no existe");	
 
 		}
 
@@ -186,16 +186,4 @@ public class CtrlPrincipal {
 		return iLongitud + 1;
 	}
 	
-
-	public static void listarTodo() {
-		int i = 0;
-		try {
-			for (i = 0; i < ctrl.CtrlPrincipal.fch.length(); i += Empleado.iLongReg) {
-				view.viewEmpleado.oEmpleado = ctrl.CtrlPrincipal.leerTodo();
-				System.out.println(view.viewEmpleado.oEmpleado);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 }
