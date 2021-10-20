@@ -129,6 +129,7 @@ public class FrmPrincipal extends JFrame {
 		lblNombre = new JLabel("Nombre:");
 		lblNombre.setBounds(201, 50, 78, 14);
 		contentPane.add(lblNombre);
+		lblNombre.setVisible(false);
 
 		setVisible(true);
 	}

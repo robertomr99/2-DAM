@@ -1,0 +1,16 @@
+<HTML>	 	 
+ 	<HEAD>	 
+ 	 	<TITLE> Manual Editor de Texto V.1</TITLE>
+ 	</HEAD>	 
+ 	<BODY>	 
+ 	 	<ul>
+			<li type="circle"><b>Nuevo</b></li>
+			<li type="circle"><b>Abrir</b></li>
+			<li type="circle"><b>Guardar</b></li>
+			<li type="circle"><b>Guardar como</b></li>
+			<li type="circle"><b>Cerrar</b></li>
+
+
+		</ul>
+ 	</BODY>	 
+</HTML>	
