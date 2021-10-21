@@ -36,11 +36,12 @@ public class FrmPrincipal extends JFrame {
 		JMenuItem mnItemNuevo = new JMenuItem("Nuevo");
 		mnItemNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtArea.setText(null);
+				ctrl.CtrlFrmPrincipal.fileSelected = null;
+				txtArea.setText("");
 			}
 		});
 		mnArchivo.add(mnItemNuevo);
-		
+
 		JMenuItem mnItemAbrir = new JMenuItem("Abrir");
 		mnItemAbrir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,7 +54,11 @@ public class FrmPrincipal extends JFrame {
 		JMenuItem mnItemGuardar = new JMenuItem("Guardar");
 		mnItemGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.CtrlFrmPrincipal.escribirFichero(ctrl.CtrlFrmPrincipal.fileSelected);
+				if (ctrl.CtrlFrmPrincipal.fileSelected != null && !ctrl.CtrlFrmPrincipal.fileSelected.getName().equals("")) {
+					ctrl.CtrlFrmPrincipal.escribirFichero(ctrl.CtrlFrmPrincipal.fileSelected);
+				} else {
+					ctrl.CtrlFrmPrincipal.guardarComoFichero();
+				}
 			}
 		});
 		mnArchivo.add(mnItemGuardar);
@@ -95,6 +100,25 @@ public class FrmPrincipal extends JFrame {
 			}
 		});
 		mnAyuda.add(mnItemAcercaDe);
+
+		JMenu mnNewMenu = new JMenu("Formato");
+		mnBarra.add(mnNewMenu);
+
+		JMenuItem mnItemFuente = new JMenuItem("Fuente");
+		mnItemFuente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new FrmFuente();
+			}
+		});
+		mnNewMenu.add(mnItemFuente);
+
+		JMenuItem mnItemColores = new JMenuItem("Colores");
+		mnItemColores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new FrmColores();
+			}
+		});
+		mnNewMenu.add(mnItemColores);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

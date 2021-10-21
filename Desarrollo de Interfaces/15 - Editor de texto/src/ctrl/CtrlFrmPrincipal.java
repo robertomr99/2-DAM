@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -86,7 +89,17 @@ public class CtrlFrmPrincipal {
 		catch (IOException e) {
 			System.err.println("Error accediendo al fichero.");
 		}
-
 	}
+	
+	public static ArrayList<String> volcarContactos(ArrayList<String> aDatos) {
 
+		DefaultListModel<String> model = new DefaultListModel<String>();
+
+		String sDato = "";
+		for (int i = 0; i < aDatos.size(); i++) {
+			sDato = aDatos.get(i);
+			model.addElement(sDato);
+		}	
+		return aDatos;
+	}
 }

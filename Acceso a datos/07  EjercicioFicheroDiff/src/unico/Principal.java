@@ -28,9 +28,7 @@ public class Principal {
 			
 			BufferedWriter bufFInvWriter = new BufferedWriter (new FileWriter(nombreFchInvertido));
 			BufferedReader bufF1Reader = new BufferedReader (new FileReader(nombreFch1));
-
 			int iContador=-1;
-			
 			String sLinea = "";
 			
 			while (sLinea != null) {
