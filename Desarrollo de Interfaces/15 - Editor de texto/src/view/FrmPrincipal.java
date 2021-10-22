@@ -107,7 +107,10 @@ public class FrmPrincipal extends JFrame {
 		JMenuItem mnItemFuente = new JMenuItem("Fuente");
 		mnItemFuente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				model.Fuentes.cargarLenguajes();
 				new FrmFuente();
+				view.FrmFuente.listFuente.setModel(model.Fuentes.volcarDatos(model.Fuentes.aFont));
+				view.FrmFuente.listTamano.setModel(model.Fuentes.volcarDatos(model.Fuentes.aSize));
 			}
 		});
 		mnNewMenu.add(mnItemFuente);

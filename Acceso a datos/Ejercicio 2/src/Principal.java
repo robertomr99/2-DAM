@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Principal {
 
-	static String sRuta = "C:\\";
+	static String sRuta = "C:\\Users\\Usuario\\Desktop\\Prueba";
 	static String sCadenaBuscada = "enero";
 	static File fch = new File(sRuta);
 	static ArrayList<String> aRutas;
@@ -14,21 +14,22 @@ public class Principal {
 	public static void main(String[] args) {
 
 		leerArray(aRutas = encontrarFichero(sRuta, sCadenaBuscada));
+		
 	}
 
-	private static ArrayList<String> encontrarFichero(String sRuta, String sCadenaBuscada) {
+	private static ArrayList<String> encontrarFichero(String sRuta, String sCadenaBuscada) {		
 		File[] dirContenido = fch.listFiles();
 		ArrayList<String> sNombres = new ArrayList<String>();
 		String sCadena = "";
 
 		try {
-			BufferedReader bufReader = new BufferedReader(new FileReader(fch));
-
 			for (File f : dirContenido) {
+				FileReader fichero = new FileReader(f);
+				BufferedReader bufReader = new BufferedReader(fichero);
 				if (f.isFile()) {
 					sCadena = bufReader.readLine();
 					while (sCadena != null) {
-						if (sCadena == sCadenaBuscada) {
+						if (sCadena.equals(sCadenaBuscada)) {
 							sNombres.add(sRuta + f.getName());
 						}
 						sCadena = bufReader.readLine();
@@ -43,8 +44,9 @@ public class Principal {
 	}
 
 	private static void leerArray(ArrayList<String> aContenido) {
-		for (int iContador = 0; iContador < aContenido.size(); iContador++) {
-			System.out.println(aContenido.get(iContador));
+	
+		for(String f : aContenido) {
+			System.out.println(f);
 		}
 	}
 }

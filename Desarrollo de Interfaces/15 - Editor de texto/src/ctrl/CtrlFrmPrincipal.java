@@ -90,16 +90,4 @@ public class CtrlFrmPrincipal {
 			System.err.println("Error accediendo al fichero.");
 		}
 	}
-	
-	public static ArrayList<String> volcarContactos(ArrayList<String> aDatos) {
-
-		DefaultListModel<String> model = new DefaultListModel<String>();
-
-		String sDato = "";
-		for (int i = 0; i < aDatos.size(); i++) {
-			sDato = aDatos.get(i);
-			model.addElement(sDato);
-		}	
-		return aDatos;
-	}
 }
