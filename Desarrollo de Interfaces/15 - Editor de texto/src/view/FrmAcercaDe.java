@@ -10,6 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import java.awt.Font;
 
 public class FrmAcercaDe extends JDialog {
 
@@ -25,15 +26,18 @@ public class FrmAcercaDe extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JLabel lblNombre = new JLabel("Editor de Texto");
+			lblNombre.setFont(new Font("Tahoma", Font.BOLD, 18));
 			lblNombre.setBounds(150, 25, 143, 14);
 			contentPanel.add(lblNombre);
 		}
 
 		JLabel lblVersion = new JLabel("Versi\u00F3n 1.0");
+		lblVersion.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblVersion.setBounds(150, 60, 143, 14);
 		contentPanel.add(lblVersion);
 
 		JLabel lblAutor = new JLabel("Autor: Roberto Mu\u00F1oz - 2021");
+		lblAutor.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblAutor.setBounds(150, 95, 175, 14);
 		contentPanel.add(lblAutor);
 		

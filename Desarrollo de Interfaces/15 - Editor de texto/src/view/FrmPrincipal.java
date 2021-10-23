@@ -14,6 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class FrmPrincipal extends JFrame {
 
@@ -45,6 +46,8 @@ public class FrmPrincipal extends JFrame {
 		JMenuItem mnItemAbrir = new JMenuItem("Abrir");
 		mnItemAbrir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			txtArea.setForeground(Color.BLACK);
+			txtArea.setBackground(Color.WHITE);
 				ctrl.CtrlFrmPrincipal.abrirFichero();
 			}
 		});

@@ -24,20 +24,24 @@ public class Principal {
 		File nombreFchEncripted = new File("Encriptado.txt");
 
 		int iClave = 5;
+		
+		//encriptarFichero(nombreFchSource, nombreFchEncripted, iClave);
 
+		desencriptarFichero(nombreFchEncripted, nombreFchSource, iClave);
+		
 		// escribirFichero(nombreFchSource);
 		// encriptarFichero(nombreFchSource, nombreFchEncripted, iClave);
 		// desencriptarFichero(nombreFchEncripted, nombreFchSource, iClave);
 
-		ArrayList<Persona> aPersonas = leerPersona(nombreFchSource);
-		aPersonas.forEach(P -> System.out.println(P));
+		/*ArrayList<Persona> aPersonas = leerPersona(nombreFchSource);
+		aPersonas.forEach(P -> System.out.println(P));*/
 
 		// escribirFicheroEncriptado(nombreFchSource);
 		// copiarFich(nombreFchSource, nombreFchTarget);
 		// contarConsonantesyVocales(nombreFchSource, nombreFchTarget);
 	}
 
-	private static ArrayList<Persona> leerPersona(File nombreFchSource) {
+	/*private static ArrayList<Persona> leerPersona(File nombreFchSource) {
 
 		ArrayList<Persona> aContenido = new ArrayList<Persona>();
 
@@ -71,6 +75,8 @@ public class Principal {
 		return aContenido;
 
 	}
+	
+	*/
 
 	private static void encriptarFichero(File nombreFchSource, File nombreFchEncripted, int iClave) {
 
@@ -87,6 +93,8 @@ public class Principal {
 			while (iAscii != -1) {
 				fchEncripted.write(iAscii - (iClave * 2));
 				iAscii = fchSource.read();
+				
+						
 			}
 
 			// Cierre de los dos ficheros
@@ -117,14 +125,14 @@ public class Principal {
 			iAscii = fchEncripted.read();
 
 			while (iAscii != -1) {
-				fchEncripted.write(iAscii - (iClave * 2));
-				iAscii = fchSource.read();
+				fchSource.write(iAscii + (iClave * 2));
+				iAscii = fchEncripted.read();
 			}
 
 			// Cierre de los dos ficheros
 
-			fchSource.close();
 			fchEncripted.close();
+			fchSource.close();
 
 		} catch (FileNotFoundException e) {
 			System.err.println("Fichero no encontrado.");

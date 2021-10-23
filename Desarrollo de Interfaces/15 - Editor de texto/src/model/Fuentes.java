@@ -19,6 +19,8 @@ public class Fuentes {
 		aFont.add("Verdana");
 		aFont.add("Times New Roman");
 		aFont.add("Comic Sans MS");
+		aFont.add("Impact");
+		aFont.add("Georgia");
 
 		aSize.add("8");
 		aSize.add("10");
@@ -28,6 +30,8 @@ public class Fuentes {
 		aSize.add("20");
 		aSize.add("22");
 		aSize.add("24");
+		aSize.add("30");
+		aSize.add("36");
 	}
 
 	public static DefaultListModel<String> volcarDatos(ArrayList<String> aDatos) {

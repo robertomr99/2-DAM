@@ -1,5 +1,6 @@
 package ctrl;
 
+import java.awt.Font;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.AttributeSet.FontAttribute;
 
 public class CtrlFrmPrincipal {
 
@@ -90,4 +92,20 @@ public class CtrlFrmPrincipal {
 			System.err.println("Error accediendo al fichero.");
 		}
 	}
+
+	public static void cambiarFuente() {
+
+		if (view.FrmFuente.rdbtnCursiva.isSelected()) {
+			view.FrmFuente.lblTextoPrueba
+					.setFont(new Font(view.FrmFuente.sFuente, Font.ITALIC, Integer.parseInt(view.FrmFuente.sTamano)));
+		} else if (view.FrmFuente.rdbtnNegrita.isSelected()) {
+			view.FrmFuente.lblTextoPrueba
+					.setFont(new Font(view.FrmFuente.sFuente, Font.BOLD, Integer.parseInt(view.FrmFuente.sTamano)));
+		} else {
+			view.FrmFuente.lblTextoPrueba
+					.setFont(new Font(view.FrmFuente.sFuente, Font.PLAIN, Integer.parseInt(view.FrmFuente.sTamano)));
+		}
+
+	}
+
 }
