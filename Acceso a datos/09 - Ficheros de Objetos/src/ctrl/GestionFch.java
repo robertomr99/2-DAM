@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import model.Coche;
+import model.Persona;
 
 public class GestionFch {
 
@@ -19,7 +20,7 @@ public class GestionFch {
 			ObjectOutputStream buff = new ObjectOutputStream(fch);
 
 			buff.writeObject(c1);
-
+			
 			buff.close();
 			fch.close();
 
@@ -27,13 +28,15 @@ public class GestionFch {
 
 			System.err.println("ERROR: " + fileName + " no existe.");
 		} catch (IOException e) {
-			System.err.println("ERROR: No se puede escribir del fichero.");
+			e.printStackTrace();
 		}
 
 	}
 
-	public static void writeData(String fileName, ArrayList<Coche> aCoches) {
+	public static void writeData(String fileName, ArrayList<Coche> aCoches, ArrayList<Persona> aPersonas) {
 
+		
+		
 		try {
 			FileOutputStream fch = new FileOutputStream(fileName);
 			ObjectOutputStream buff = new ObjectOutputStream(fch);
@@ -49,14 +52,15 @@ public class GestionFch {
 			// Escribe un objeto aCoches que es un objeto tipo ArrayList;
 			
 			buff.writeObject(aCoches);
+			buff.writeObject(aPersonas);
 
 			/*
 			 * listCoche.forEach(c -> { try { buff.writeObject(c); } catch (IOException e) {
 			 * e.printStackTrace(); } });
 			 */
+		
 
-			buff.writeObject(aCoches);
-
+			
 			buff.close();
 			fch.close();
 
@@ -94,9 +98,12 @@ public class GestionFch {
 		return cocheDevolver;
 	}
 
-	public static ArrayList<Coche> leerArrayObjeto(String fileName) {
+	@SuppressWarnings("unchecked")
+	public static void leerArrayObjeto(String fileName) {
 
 		ArrayList<Coche> aCoches = new ArrayList<>();
+		ArrayList<Persona> aPersonas = new ArrayList<>();
+		
 
 		try {
 			FileInputStream fch = new FileInputStream(fileName);
@@ -117,16 +124,26 @@ public class GestionFch {
 			
 			// Es lo mismo que el while de arriba , leemos aCoches que es un objeto de la clase ArrayList<> y le hace un casting
 			aCoches = (ArrayList<Coche>) buff.readObject();
+			aPersonas = (ArrayList<Persona>) buff.readObject();
+			
+			for( Coche C : aCoches) {
+				System.out.println(C);
+			}
+			
+			for( Persona P  : aPersonas) {
+				System.out.println(P);
+			}
+			
+			
 
 		} catch (FileNotFoundException e) {
 
 			System.err.println("ERROR: " + fileName + " no existe.");
 		} catch (IOException e) {
-			System.err.println("ERROR: No se puede leer del fichero.");
+			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			System.err.println("ERROR: el fichero no contiene un coche.");
 		}
-		return aCoches;
 	}
 
 }

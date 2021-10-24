@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 public class FrmColores extends JDialog {
 
 	public static JLabel lblTextoPrueba;
-
+	public static Color cBackgroundDefault, cForegroundDefault;
 	private final JPanel contentPanel = new JPanel();
 
 	public FrmColores() {
@@ -238,7 +238,9 @@ public class FrmColores extends JDialog {
 			JButton btnGuardar= new JButton("Guardar");
 			btnGuardar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-						
+						cBackgroundDefault = lblTextoPrueba.getBackground();
+						cForegroundDefault = lblTextoPrueba.getForeground();
+						ctrl.CtrlFrmPrincipal.writeColor();
 				}
 			});
 			btnGuardar.setBounds(325, 300, 89, 23);

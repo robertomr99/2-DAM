@@ -31,7 +31,7 @@ public class FrmFuente extends JDialog {
 	public static JLabel lblTextoPrueba;
 	public static JRadioButton rdbtnNormal ,rdbtnNegrita,rdbtnCursiva;
 	public static String sTamano="16", sFuente="Arial";
-	public static Font fDefautlt = new Font (sFuente, Font.PLAIN , Integer.parseInt(sTamano));
+	public static Font fDefautlt;
 	
 	private final JPanel contentPanel = new JPanel();
 
@@ -142,8 +142,7 @@ public class FrmFuente extends JDialog {
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fDefautlt = view.FrmFuente.lblTextoPrueba.getFont();
-				
-				
+				ctrl.CtrlFrmPrincipal.writeFont();
 			}
 		});
 		btnGuardar.setBounds(325, 260, 89, 23);

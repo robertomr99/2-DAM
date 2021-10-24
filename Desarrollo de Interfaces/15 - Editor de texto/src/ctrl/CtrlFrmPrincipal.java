@@ -3,22 +3,28 @@ package ctrl;
 import java.awt.Font;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.AttributeSet.FontAttribute;
+import java.awt.Color;
+
 
 public class CtrlFrmPrincipal {
 
-	public static File fileSelected;
-	public static File fchAyuda = new File("Ayuda.txt");
+	public static File fileSelected, fchAyuda = new File("Ayuda.txt"), fileFont = new File("Fuentes.dat"), fileColor = new File("Color.dat");;
 	public static String sContenido;
+	public static Color cBackgroundDefault, cForegroundDefault;
+
 
 	public static void abrirFichero() {
 		JFileChooser selectorFch = new JFileChooser();
@@ -107,5 +113,77 @@ public class CtrlFrmPrincipal {
 		}
 
 	}
+	
+	
+	public static void writeFont() {
+        try {
+            ObjectOutputStream buff = new ObjectOutputStream(new FileOutputStream(fileFont));
+            buff.writeObject(fileFont);
+            buff.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("ERROR: " + fileFont + " NO EXISTE");
+        } catch (IOException e) {
+            System.err.println("ERROR: NO SE PUEDE ESCRIBIR EN EL FICHERO");
+        }
+    }
+	
+	
+	public static Font readFont() {
+		Font oFont = null;
+        try {
+            ObjectInputStream buff = new ObjectInputStream( new FileInputStream(fileFont));
 
+            oFont = (Font) buff.readObject();
+            buff.close();
+      
+        } catch (FileNotFoundException e) {
+            System.err.println("ERROR: " + fileFont+ " NO EXISTE");
+        } catch (IOException e) {
+            System.err.println("ERROR: NO SE PUEDE LEER EN EL FICHERO");
+        } catch (ClassNotFoundException e) {
+            System.err.println("EL FICHERO NO CONTIENE UN OBJETO.");
+        }
+
+        return oFont;
+    }
+	
+	
+	public static void writeColor() {
+        try {
+            ObjectOutputStream buff = new ObjectOutputStream(new FileOutputStream(fileColor));
+            buff.writeObject(view.FrmColores.cBackgroundDefault);
+            buff.writeObject(view.FrmColores.cForegroundDefault);
+            buff.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("ERROR: " + fileColor + " NO EXISTE");
+        } catch (IOException e) {
+            System.err.println("ERROR: NO SE PUEDE ESCRIBIR EN EL FICHERO");
+        }
+    }
+	
+	
+	public static void readColor() {
+        try {
+            ObjectInputStream buff = new ObjectInputStream( new FileInputStream(fileColor));
+            cBackgroundDefault = (Color) buff.readObject();
+            cForegroundDefault = (Color) buff.readObject();
+            buff.close();
+      
+        } catch (FileNotFoundException e) {
+            System.err.println("ERROR: " + fileColor+ " NO EXISTE");
+        } catch (IOException e) {
+            System.err.println("ERROR: NO SE PUEDE LEER EN EL FICHERO");
+        } catch (ClassNotFoundException e) {
+            System.err.println("EL FICHERO NO CONTIENE UN OBJETO.");
+        }
+    }
+	
+	public static void defaultConfig() {
+		view.FrmPrincipal.txtArea.setFont(readFont());
+		readColor();
+		view.FrmPrincipal.txtArea.setBackground(cBackgroundDefault);
+		view.FrmPrincipal.txtArea.setForeground(cForegroundDefault);	
+	}
+	
+	
 }
