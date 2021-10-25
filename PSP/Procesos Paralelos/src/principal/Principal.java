@@ -38,6 +38,17 @@ public class Principal {
 		}
 	}
 
+	/**
+	 * 
+	 * @param clase
+	 * @param n1
+	 * @param n2
+	 * @param n3
+	 * @param n4
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+
 	public static void ejecutarClaseProceso(Class clase, int n1, int n2, int n3, int n4)
 			throws IOException, InterruptedException {
 		

@@ -1,10 +1,7 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 import javax.swing.ButtonGroup;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -14,11 +11,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.util.ArrayList;
-import java.util.List;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionListener;
