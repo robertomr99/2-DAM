@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<game>
+    
+    <partida iNumero="1">
+        
+        <iDuracion>120</iDuracion>
+        
+        <jugador1>321 </jugador1>
+        
+        <jugador2>123 </jugador2>
+        
+    </partida>
+    
+    <jugador iNumero="321">
+        
+        <sNombre>Pepe </sNombre>
+        
+        <sApellidos>Lopez Gutierrez </sApellidos>
+        
+        <sNick>Pepi</sNick>
+        
+        <iPuntos>123</iPuntos>
+        
+    </jugador>
+    
+    <jugador iNumero="123">
+        
+        <sNombre>Paco </sNombre>
+        
+        <sApellidos>Ruiz Lopez</sApellidos>
+        
+        <sNick>PacoPico</sNick>
+        
+        <iPuntos>452</iPuntos>
+        
+    </jugador>
+    
+    <partida iNumero="2">
+        
+        <iDuracion>120</iDuracion>
+        
+        <jugador1>56</jugador1>
+        
+        <jugador2>89</jugador2>
+        
+    </partida>
+    
+    <jugador iNumero="56">
+        
+        <sNombre>Manolo</sNombre>
+        
+        <sApellidos>De la Sierra Castilllo</sApellidos>
+        
+        <sNick>Casti</sNick>
+        
+        <iPuntos>432</iPuntos>
+        
+    </jugador>
+    
+    <jugador iNumero="89">
+        
+        <sNombre>Jose</sNombre>
+        
+        <sApellidos>Bordillo Acera</sApellidos>
+        
+        <sNick>Acerao</sNick>
+        
+        <iPuntos>32</iPuntos>
+        
+    </jugador>
+    
+    <jugador iNumero="316">
+        
+        <sNombre>Luis</sNombre>
+        
+        <sApellidos>Fatigas Fatigas</sApellidos>
+        
+        <sNick>Fundita del jamón</sNick>
+        
+        <iPuntos>1</iPuntos>
+        
+    </jugador>
+     
+    <jugador numero="1122">
+        <sNombre>Pedro</sNombre>
+        <sApellidos>Mongo Rico</sApellidos>
+        <sNick>Perico</sNick>
+        <iPuntos>145</iPuntos>
+    </jugador>
+</game>
