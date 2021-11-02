@@ -4,7 +4,10 @@ public class Start {
 
 	public static void main(String[] args) {
 	
+		ctrl.CtrlPrincipal.cargarImagenes();
 		new view.FrmPrincipal();
+		view.FrmPrincipal.crearLabel();
+	
 
 	}
 
