@@ -280,5 +280,9 @@ public class FrmPrincipal extends JFrame {
 		panelJuego.add(SepVer5);
 
 		setVisible(true);
+		
+		
+		
+
 	}
 }

@@ -2,82 +2,76 @@ package model;
 
 public class Ciudad {
 
-	private String sNombreCiudad;
-	private int iTempMax, iTempMin, iCapital, iCod_ine_m, iCod_ine;
+	private String sNombreCiudad , sCapital, sCod_ine;
+	private int iTempMax, iTempMin;
+
 	
-	public Ciudad(String sNombreCiudad, int iTempMax, int iTempMin, int iCapital, int iCod_ine_m, int iCod_ine) {
+	
+
+
+	public Ciudad(String sNombreCiudad, String sCapital, String sCod_ine, int iTempMax, int iTempMin) {
 		this.sNombreCiudad = sNombreCiudad;
+		this.sCapital = sCapital;
+		this.sCod_ine = sCod_ine;
 		this.iTempMax = iTempMax;
 		this.iTempMin = iTempMin;
-		this.iCapital = iCapital;
-		this.iCod_ine_m = iCod_ine_m;
-		this.iCod_ine = iCod_ine;
-	}
-	
-	
-	public Ciudad() {
-		this.sNombreCiudad = "";
-		this.iTempMax = 0;
-		this.iTempMin = 0;
-		this.iCapital = 0;
-		this.iCod_ine_m = 0;
-		this.iCod_ine = 0;
-	}
-	
-
-	public int getiCapital() {
-		return iCapital;
 	}
 
-	public void setiCapital(int iCapital) {
-		this.iCapital = iCapital;
+
+	public String getsCapital() {
+		return sCapital;
 	}
 
-	public int getiCod_ine_m() {
-		return iCod_ine_m;
+
+	public void setsCapital(String sCapital) {
+		this.sCapital = sCapital;
 	}
 
-	public void setiCod_ine_m(int iCod_ine_m) {
-		this.iCod_ine_m = iCod_ine_m;
-	}
-
-	public int getiCod_ine() {
-		return iCod_ine;
-	}
-
-	public void setiCod_ine(int iCod_ine) {
-		this.iCod_ine = iCod_ine;
-	}
 
 	public String getsNombreCiudad() {
 		return sNombreCiudad;
 	}
 
+
 	public void setsNombreCiudad(String sNombreCiudad) {
 		this.sNombreCiudad = sNombreCiudad;
 	}
+
 
 	public int getiTempMax() {
 		return iTempMax;
 	}
 
+
 	public void setiTempMax(int iTempMax) {
 		this.iTempMax = iTempMax;
 	}
+
 
 	public int getiTempMin() {
 		return iTempMin;
 	}
 
+
 	public void setiTempMin(int iTempMin) {
 		this.iTempMin = iTempMin;
 	}
 
-	@Override
-	public String toString() {
-		return "Ciudad [sNombreCiudad=" + sNombreCiudad + ", iTempMax=" + iTempMax + ", iTempMin=" + iTempMin
-				+ ", iCapital=" + iCapital + ", iCod_ine_m=" + iCod_ine_m + ", iCod_ine=" + iCod_ine + "]";
+
+	public String getsCod_ine() {
+		return sCod_ine;
 	}
+
+
+	public void setsCod_ine(String sCod_ine) {
+		this.sCod_ine = sCod_ine;
+	}
+
+
+	
+	
+	
+	
 
 	
 }

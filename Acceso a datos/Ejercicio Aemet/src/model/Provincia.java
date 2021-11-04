@@ -4,28 +4,16 @@ import java.util.ArrayList;
 
 public class Provincia {
 
-	private String sNombreProvincia, sCCAA;;
+	private String sNombreProvincia, sCCAA, sId;
 	private ArrayList<Ciudad> aCiudades;
-	private int iId;
 
-	public Provincia(String sNombreProvincia, String sCCAA, ArrayList<Ciudad> aCiudades, int iId) {
+	
+	public Provincia(String sNombreProvincia, String sCCAA, String sId, ArrayList<Ciudad> aCiudades) {
 		this.sNombreProvincia = sNombreProvincia;
 		this.sCCAA = sCCAA;
+		this.sId = sId;
 		this.aCiudades = aCiudades;
-		this.iId = iId;
 	}
-	
-	
-	public Provincia() {
-		this.sNombreProvincia = "";
-		this.sCCAA = "";
-		this.aCiudades = ; 
-		this.iId = 0;
-		
-		
-	}
-	
-
 
 	public String getsCCAA() {
 		return sCCAA;
@@ -35,12 +23,14 @@ public class Provincia {
 		this.sCCAA = sCCAA;
 	}
 
-	public int getiId() {
-		return iId;
+	
+
+	public String getsId() {
+		return sId;
 	}
 
-	public void setiId(int iId) {
-		this.iId = iId;
+	public void setsId(String sId) {
+		this.sId = sId;
 	}
 
 	public String getsNombreProvincia() {
@@ -61,8 +51,10 @@ public class Provincia {
 
 	@Override
 	public String toString() {
-		return "Provincia [sNombreProvincia=" + sNombreProvincia + ", sCCAA=" + sCCAA + ", aCiudades=" + aCiudades
-				+ ", iId=" + iId + "]";
+		return "Provincia [sNombreProvincia=" + sNombreProvincia + ", sCCAA=" + sCCAA + ", sId=" + sId + ", aCiudades="
+				+ aCiudades + "]";
 	}
+
+
 
 }
