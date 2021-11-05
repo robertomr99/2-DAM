@@ -31,7 +31,7 @@ public class DBoracle {
 		
 		System.out.println(dbLogin.toString());
 	
-		//String dbURL = "jdbc:oracle:thin:@" + dbLogin.getDbHOST()+ ":" + dbLogin.getDbPORT()+ ":" + dbLogin.getDbNAME();
+		String dbURL = "jdbc:oracle:thin:@" + dbLogin.getDbHOST()+ ":" + dbLogin.getDbPORT()+ ":" + dbLogin.getDbNAME();
 
 		// Carga el DRIVER en memoria
 
@@ -39,7 +39,7 @@ public class DBoracle {
 
 		// Establecemos la conexión
 
-		//conn = DriverManager.getConnection(dbURL, dbLogin.getDbUSER(), dbLogin.getDbPASS());
+		conn = DriverManager.getConnection(dbURL, dbLogin.getDbUSER(), dbLogin.getDbPASS());
 	}
 
 	public static boolean testConn() {
@@ -53,10 +53,12 @@ public class DBoracle {
 			boExito = false;
 		}
 
+		
+		System.out.println(boExito);
+		
 		return boExito;
 	}
 
-	
 	private static DBLogin readConfig() {
 		String sSeparador = ":";
 		DBLogin dbLogin = new DBLogin();
@@ -80,4 +82,6 @@ public class DBoracle {
 		
 		return dbLogin;
 	}
+	
+	
 }

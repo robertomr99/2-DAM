@@ -3,22 +3,13 @@ package start;
 public class Principal {
 
 	public static void main(String[] args) {
-		
-		
-		try {
-			dbms.DBoracle.openConn();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-/*		if (dbms.DBoracle.testConn() == true) {
+		if (dbms.DBoracle.testConn() == true) {
 			System.out.println("Conexión establecida con éxito");
 		} else {
 			System.out.println("ERROR");
 
 		}
-	
-*/
+
 	}
 }
