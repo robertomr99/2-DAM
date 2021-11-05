@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import model.DBLogin;
+
 public class DBoracle {
 
 	private static Connection conn;
@@ -24,12 +26,12 @@ public class DBoracle {
 
 	public static void openConn() throws Exception {
 
-		String dbHOST = "10.192.120.60";
-		String dbPORT = "1521";
-		String dbNAME = "ORCL";
-		String dbUSER = "ROBERTO";
-		String dbPASS = "5132Mr2012";
-		String dbURL = "jdbc:oracle:thin:@" + dbHOST + ":" + dbPORT + ":" + dbNAME;
+		DBLogin dbLogin = readConfig();
+	
+		
+		System.out.println(dbLogin.toString());
+	
+		//String dbURL = "jdbc:oracle:thin:@" + dbLogin.getDbHOST()+ ":" + dbLogin.getDbPORT()+ ":" + dbLogin.getDbNAME();
 
 		// Carga el DRIVER en memoria
 
@@ -37,7 +39,7 @@ public class DBoracle {
 
 		// Establecemos la conexión
 
-		conn = DriverManager.getConnection(dbURL, dbUSER, dbPASS);
+		//conn = DriverManager.getConnection(dbURL, dbLogin.getDbUSER(), dbLogin.getDbPASS());
 	}
 
 	public static boolean testConn() {
@@ -54,24 +56,28 @@ public class DBoracle {
 		return boExito;
 	}
 
-	public void readConfig(File fch) {
+	
+	private static DBLogin readConfig() {
+		String sSeparador = ":";
+		DBLogin dbLogin = new DBLogin();
 
 		try {
-			BufferedReader buff = new BufferedReader(new FileReader(fch));
+			BufferedReader buff = new BufferedReader(new FileReader(fchConn));
 			
-			buff.readLine();
-			
-			
-			
-			
+			dbLogin.setDbHOST(buff.readLine().split(sSeparador)[1]);
+			dbLogin.setDbPORT(buff.readLine().split(sSeparador)[1]);
+			dbLogin.setDbNAME(buff.readLine().split(sSeparador)[1]);
+			dbLogin.setDbUSER(buff.readLine().split(sSeparador)[1]);
+			dbLogin.setDbPASS(buff.readLine().split(sSeparador)[1]);
+				
 			buff.close();
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		
-		
+		return dbLogin;
 	}
 }
