@@ -1,6 +1,6 @@
 package model;
 
-public class Productor implements Runnable {
+public class Productor extends Thread{
 
 	private int iDormir;
 	private Almacen oAlmacen;

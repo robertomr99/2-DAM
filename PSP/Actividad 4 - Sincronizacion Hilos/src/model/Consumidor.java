@@ -1,6 +1,6 @@
 package model;
 
-public class Consumidor implements Runnable {
+public class Consumidor extends Thread{
 	
 	private int iDormir;
 	private Almacen oAlmacen;
@@ -26,9 +26,11 @@ public class Consumidor implements Runnable {
 	
 	@Override
 	public void run() {
+		int iValor = 0;
 		
 		for(int i = 0 ; i < 10 ; i ++) {
-			System.out.println("El consumidor saca el elemento: "+oAlmacen.getiContenido()+ " del almacén");
+			iValor = oAlmacen.getiContenido();
+			System.out.println("El consumidor saca el elemento: "+iValor + " del almacén");
 		}
 		
 		try {

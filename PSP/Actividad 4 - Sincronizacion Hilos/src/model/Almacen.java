@@ -9,9 +9,6 @@ public class Almacen {
 	public Almacen() {
 	}
 	
-	
-	
-	
 
 	public synchronized int getiContenido() {
 		

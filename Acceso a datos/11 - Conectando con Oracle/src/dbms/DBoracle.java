@@ -28,9 +28,6 @@ public class DBoracle {
 
 		DBLogin dbLogin = readConfig();
 	
-		
-		System.out.println(dbLogin.toString());
-	
 		String dbURL = "jdbc:oracle:thin:@" + dbLogin.getDbHOST()+ ":" + dbLogin.getDbPORT()+ ":" + dbLogin.getDbNAME();
 
 		// Carga el DRIVER en memoria
