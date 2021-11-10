@@ -33,7 +33,7 @@ public class FrmPrincipal extends JFrame {
 	public static Provincia P;
 	public static Ciudad C;
 	public static ArrayList<ComunidadAutonoma> aCCAA = GestionXML.getInfo();
-	public static ArrayList<Provincia> 	aP ;
+	public static ArrayList<Provincia> aP;
 	public static ArrayList<Ciudad> aC;
 	public static JComboBox comboBoxProvincia, comboBoxCiudad, comboBoxComunidad;
 
@@ -77,17 +77,9 @@ public class FrmPrincipal extends JFrame {
 
 		comboBoxComunidad = new JComboBox<String>();
 		comboBoxComunidad.setBounds(166, 42, 128, 22);
-		ctrl.GestionXML.rellenarComboBoxCCAA(ctrl.GestionXML.fchXML);
 		comboBoxComunidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sCCAA = comboBoxComunidad.getSelectedItem().toString();
-				for (int i = 0; i < aCCAA.size(); i++) {
-					if (aCCAA.get(i).getsNombreComunidad().equals(sCCAA)) {
-						CCAA = aCCAA.get(i);
-					}
-				}
-				aP = GestionXML.getProvincias(CCAA.getsId());
-				ctrl.GestionXML.rellenarComboBoxProvincias(CCAA);
+				ctrl.GestionXML.listenerCCAA();
 			}
 		});
 
@@ -96,37 +88,17 @@ public class FrmPrincipal extends JFrame {
 		comboBoxProvincia.setBounds(165, 122, 128, 22);
 		comboBoxProvincia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sProvincia = comboBoxProvincia.getSelectedItem().toString();
-				for (int i = 0; i < aP.size(); i++) {
-					if (aP.get(i).getsNombreProvincia().equals(sProvincia)) {
-						P = aP.get(i);
-					}
-				}
-				aC = GestionXML.getCiudades(P.getsId());
-				ctrl.GestionXML.rellenarComboBoxCiudades(P);
+				ctrl.GestionXML.listenerProvincia();
 			}
 		});
 		contentPane.add(comboBoxProvincia);
-		
-		
+
 		comboBoxCiudad = new JComboBox();
 		comboBoxCiudad.setBounds(165, 202, 128, 22);
 		comboBoxCiudad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sCiudad = comboBoxCiudad.getSelectedItem().toString(); 
-				
-				for(int i= 0 ; i < aC.size() ; i++) {
-					if(aC.get(i).getsNombreCiudad().equals(sCiudad)) {
-						C = aC.get(i);
-						}
-				}
-				String sTempMax = String.valueOf(C.getiTempMax());
-				String sTempMin = String.valueOf(C.getiTempMin());
-				
-				
-				lblTemp.setText( "["+sTempMax+"]" +"-"+ "["+sTempMin+"]");
+				ctrl.GestionXML.listenerCiudad();
 			}
-
 		});
 		contentPane.add(comboBoxCiudad);
 

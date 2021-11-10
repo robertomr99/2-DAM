@@ -35,10 +35,11 @@ public class GestionXML {
 	public static void inicio() throws Exception {
 		sFecha = devolverFecha();
 		download_AEMET(sFecha);
+		rellenarCCAA(ctrl.GestionXML.fchXML);
 		new view.FrmPrincipal();
 	}
 
-	public static void rellenarComboBoxCCAA(GestionXML fchXML) {
+	public static void rellenarCCAA(GestionXML fchXML) {
 		// jcomboBox.removeAllItems();
 
 		try {
@@ -51,13 +52,13 @@ public class GestionXML {
 		}
 	}
 
-	public static void rellenarComboBoxCiudades(Provincia p) {
+	public static void rellenarCiudades(Provincia p) {
 		view.FrmPrincipal.comboBoxCiudad.removeAllItems();
-		
+
 		System.out.println(p.getaCiudades());
-		
+
 		try {
-			for (Ciudad c : p.getaCiudades()){
+			for (Ciudad c : p.getaCiudades()) {
 				view.FrmPrincipal.comboBoxCiudad.addItem(c.getsNombreCiudad());
 			}
 		} catch (Exception e) {
@@ -66,7 +67,7 @@ public class GestionXML {
 
 	}
 
-	public static void rellenarComboBoxProvincias(ComunidadAutonoma CCAA) {
+	public static void rellenarProvincias(ComunidadAutonoma CCAA) {
 		view.FrmPrincipal.comboBoxProvincia.removeAllItems();
 		try {
 
@@ -208,4 +209,40 @@ public class GestionXML {
 		in.close();
 	}
 
+	public static void listenerCCAA() {
+		view.FrmPrincipal.sCCAA = view.FrmPrincipal.comboBoxComunidad.getSelectedItem().toString();
+		for (int i = 0; i < view.FrmPrincipal.aCCAA.size(); i++) {
+			if (view.FrmPrincipal.aCCAA.get(i).getsNombreComunidad().equals(view.FrmPrincipal.sCCAA)) {
+				view.FrmPrincipal.CCAA = view.FrmPrincipal.aCCAA.get(i);
+			}
+		}
+		view.FrmPrincipal.aP = GestionXML.getProvincias(view.FrmPrincipal.CCAA.getsId());
+		ctrl.GestionXML.rellenarProvincias(view.FrmPrincipal.CCAA);
+
+	}
+
+	public static void listenerProvincia() {
+		view.FrmPrincipal.sProvincia = view.FrmPrincipal.comboBoxProvincia.getSelectedItem().toString();
+		for (int i = 0; i < view.FrmPrincipal.aP.size(); i++) {
+			if (view.FrmPrincipal.aP.get(i).getsNombreProvincia().equals(view.FrmPrincipal.sProvincia)) {
+				view.FrmPrincipal.P = view.FrmPrincipal.aP.get(i);
+			}
+		}
+		view.FrmPrincipal.aC = GestionXML.getCiudades(view.FrmPrincipal.P.getsId());
+		ctrl.GestionXML.rellenarCiudades(view.FrmPrincipal.P);
+	}
+	
+	public static void listenerCiudad() {
+		view.FrmPrincipal.sCiudad = view.FrmPrincipal.comboBoxCiudad.getSelectedItem().toString(); 
+		
+		for(int i= 0 ; i < view.FrmPrincipal.aC.size() ; i++) {
+			if(view.FrmPrincipal.aC.get(i).getsNombreCiudad().equals(view.FrmPrincipal.sCiudad)) {
+				view.FrmPrincipal.C = view.FrmPrincipal.aC.get(i);
+				}
+		}
+		String sTempMax = String.valueOf(view.FrmPrincipal.C.getiTempMax());
+		String sTempMin = String.valueOf(view.FrmPrincipal.C.getiTempMin());
+
+		view.FrmPrincipal.lblTemp.setText( "["+sTempMax+"]" +"-"+ "["+sTempMin+"]");
+	}
 }

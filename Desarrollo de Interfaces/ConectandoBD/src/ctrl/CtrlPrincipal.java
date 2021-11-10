@@ -1,14 +1,18 @@
 package ctrl;
 
+
+
+import javax.swing.JTextArea;
+
 import model.DBLogin;
 
 public class CtrlPrincipal {
 
 	public static DBLogin dbLogin = new DBLogin();
-	
+
 	public static void inicio() {
 		new view.FrmPrincipal();
-		dbms.DBoracle.readConfig();	
+		dbms.DBoracle.readConfig();
 	}
 
 	public static void loginCredenciales() {
@@ -22,16 +26,33 @@ public class CtrlPrincipal {
 		dbLogin.setDbNAME(view.JDTest.txtName.getText());
 	}
 
-	public static void mostrarCredencialesTest() {		
+	public static void mostrarCredencialesTest() {
 		view.JDTest.txtHost.setText(dbLogin.getDbHOST());
 		view.JDTest.txtPort.setText(dbLogin.getDbPORT());
 		view.JDTest.txtName.setText(dbLogin.getDbNAME());
 	}
-	
+
 	public static void mostrarCredencialesLogin() {
 		view.JDLogin.txtUsuario.setText(dbLogin.getDbUSER());
 		view.JDLogin.txtPassword.setText(dbLogin.getDbPASS());
 
 	}
 
+	public static void listenerBtnEjecutar(JTextArea TxtArea) {
+		try {
+			rellenarSQL();
+			TxtArea.setText(mostrarListado());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static String mostrarListado() throws Exception {
+		return logic.LogGeneral.getListado(view.FrmPrincipal.txtAreaSentenciaSQL.getText());
+	}
+
+	private static void rellenarSQL() throws Exception {
+		logic.LogGeneral.getListado(view.FrmPrincipal.txtAreaSentenciaSQL.getText());
+	}
 }
