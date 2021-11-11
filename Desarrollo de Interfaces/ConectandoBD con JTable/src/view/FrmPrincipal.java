@@ -27,6 +27,7 @@ import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
+import javax.swing.ListSelectionModel;
 
 public class FrmPrincipal extends JFrame {
 
@@ -94,13 +95,15 @@ public class FrmPrincipal extends JFrame {
 		JButton btnEjecutar = new JButton(new ImageIcon("Images/play-button.png"));
 		btnEjecutar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ctrl.CtrlPrincipal.listenerBtnEjecutar(txtAreaResultado);
+				ctrl.CtrlPrincipal.listenerBtnEjecutar();
 			}
 		});
 		btnEjecutar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		PnlSentencias.add(btnEjecutar, BorderLayout.EAST);
 
 		tblResultado = new JTable();
+		tblResultado.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tblResultado.setColumnSelectionAllowed(true);
 		tblResultado.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent e) {
 				ctrl.CtrlPrincipal.fileSeleccionada();

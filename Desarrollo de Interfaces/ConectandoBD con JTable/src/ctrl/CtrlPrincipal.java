@@ -49,7 +49,7 @@ public class CtrlPrincipal {
 		}
 	}
 
-	public static void listenerBtnEjecutar(JTextArea TxtArea) {
+	public static void listenerBtnEjecutar() {
 		try {
 			rellenarTabla(logic.LogGeneral.getListado(view.FrmPrincipal.txtAreaSentenciaSQL.getText()));
 		} catch (Exception e) {
