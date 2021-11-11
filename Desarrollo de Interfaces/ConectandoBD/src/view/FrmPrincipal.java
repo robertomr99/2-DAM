@@ -21,6 +21,7 @@ import java.awt.Toolkit;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+import javax.swing.JTable;
 
 public class FrmPrincipal extends JFrame {
 
@@ -97,6 +98,7 @@ public class FrmPrincipal extends JFrame {
 		txtAreaResultado.setFont(new Font("Courier New", Font.PLAIN, 15));
 		contentPane.add(txtAreaResultado, BorderLayout.CENTER);
 		setVisible(true);
+
 	}
 
 }

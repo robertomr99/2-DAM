@@ -3,6 +3,7 @@ package ctrl;
 
 
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 import model.DBLogin;
 
@@ -12,7 +13,7 @@ public class CtrlPrincipal {
 
 	public static void inicio() {
 		new view.FrmPrincipal();
-		dbms.DBoracle.readConfig();
+		dbms.DBoracle.readConfig();		
 	}
 
 	public static void loginCredenciales() {
@@ -55,4 +56,6 @@ public class CtrlPrincipal {
 	private static void rellenarSQL() throws Exception {
 		logic.LogGeneral.getListado(view.FrmPrincipal.txtAreaSentenciaSQL.getText());
 	}
+	
+
 }
