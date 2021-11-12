@@ -3,12 +3,10 @@ package ctrl;
 import javax.swing.table.DefaultTableModel;
 import model.DBLogin;
 
-
 public class CtrlPrincipal {
 
 	public static String sSQL;
 	public static DBLogin dbLogin = new DBLogin();
-	public static String sDeptNO;
 
 	public static void inicio() throws Exception {
 		new view.FrmPrincipal();
@@ -39,16 +37,26 @@ public class CtrlPrincipal {
 
 	}
 
-
 	public static void rellenarTabla(DefaultTableModel modelo) {
 		view.FrmPrincipal.tblDept.setModel(modelo);
+		view.FrmPrincipal.tblDept.getColumnModel().getColumn(0).setMaxWidth(0);
+		view.FrmPrincipal.tblDept.getColumnModel().getColumn(0).setMinWidth(0);
+		view.FrmPrincipal.tblDept.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+		view.FrmPrincipal.tblDept.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
 	}
-	
-	public static void rellenarLista() throws Exception {
-		view.FrmPrincipal..setModel(logic.LogGeneral.getListadoTablas());
-	}
-	
-	
 
-	
+	/*
+	 * public static void rellenarLista() throws Exception {
+	 * view.FrmPrincipal..setModel(logic.LogGeneral.getListadoTablas()); }
+	 */
+
+	public static void ListenerTabla() throws Exception {
+		view.FrmPrincipal.tblDatos .setModel(logic.LogGeneral.getListadoTablas(fileSeleccionada()));
+	}
+
+	public static String fileSeleccionada() {
+		int iNumFila = view.FrmPrincipal.tblDept.getSelectedRow();
+		return view.FrmPrincipal.tblDept.getValueAt(iNumFila, 0).toString();
+	}
+
 }

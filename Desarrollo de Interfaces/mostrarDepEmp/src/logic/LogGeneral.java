@@ -11,7 +11,7 @@ public class LogGeneral {
 
 	public static DefaultTableModel getListado() throws Exception {
 
-		String sSQL = "SELECT * FROM DEPT";
+		String sSQL = "SELECT DEPTNO , DNAME NOMBRE , LOC LOCALIZACION FROM DEPT";
 
 		// CONEXION A LA BASE DE DATOS
 
@@ -29,20 +29,18 @@ public class LogGeneral {
 		int nCampos = info.getColumnCount();
 
 		DefaultTableModel modelo = new DefaultTableModel();
-
+		String[] sFila = new String[nCampos];
 		// ADD los noombre de las columnas
 
-		String[] sFila = new String[nCampos];
-
-		for (int i = 2; i <= nCampos; i++) {
+		for (int i = 1; i <= nCampos; i++) {
 			modelo.addColumn(info.getColumnLabel(i));
 		}
 
 		while (resultado.next()) { // Esto es una fila entera
-			for (int c = 1; c <= nCampos; c++) {
-
-				sFila[c - 1] = resultado.getString(c);
-
+			for (int i = 1; i <= nCampos; i++) {
+				sFila[0] = resultado.getNString("DEPTNO");
+				sFila[1] = resultado.getNString("NOMBRE");
+				sFila[2] = resultado.getNString("LOCALIZACION");
 			}
 			modelo.addRow(sFila);
 		}
@@ -54,11 +52,12 @@ public class LogGeneral {
 		// DEVOLVEMOS LA LISTA DE DEPT
 
 		return modelo;
+
 	}
 
-	public static DefaultListModel getListadoTablas() throws Exception {
+	public static DefaultTableModel getListadoTablas(String sDEPTNO) throws Exception {
 
-		String sSQL = "select table_name from user_tables order by 1";
+		String sSQL = "SELECT ENAME AS NOMBRE , JOB AS OFICIO , SAL AS SALARIO FROM EMP WHERE DEPTNO = "+sDEPTNO;
 
 		dbms.DBoracle.openConn();
 
@@ -69,15 +68,19 @@ public class LogGeneral {
 		ResultSetMetaData info = resultado.getMetaData();
 		int nCampos = info.getColumnCount();
 
-		DefaultListModel<String> modelo = new DefaultListModel<String>();
+		DefaultTableModel modelo = new DefaultTableModel();
 
-		String sFila = "";
+		String [] sFila = new String[nCampos];
 
+		for (int i = 1; i <= nCampos; i++) {
+			modelo.addColumn(info.getColumnLabel(i));
+		}
+		
 		while (resultado.next()) {
 			for (int i = 1; i <= nCampos; i++) {
-				sFila = resultado.getString(i);
+				sFila [i-1] = resultado.getString(i);
 			}
-			modelo.addElement(sFila);
+			modelo.addRow(sFila);
 		}
 
 		dbms.DBoracle.closeConn();

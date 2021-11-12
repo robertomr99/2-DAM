@@ -26,6 +26,9 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.CardLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.ListSelectionModel;
 
 
 public class FrmPrincipal extends JFrame {
@@ -41,7 +44,7 @@ public class FrmPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("DB Client");
 		setIconImage(Toolkit.getDefaultToolkit().createImage("Images/database.png"));
-		setBounds(100, 100, 708, 400);
+		setBounds(100, 100, 800, 401);
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -85,7 +88,7 @@ public class FrmPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel pnlDept = new JPanel();
-		pnlDept.setBounds(1, 1, 175, 337);
+		pnlDept.setBounds(1, 1, 240, 337);
 		contentPane.add(pnlDept);
 		pnlDept.setLayout(null);
 		
@@ -95,10 +98,26 @@ public class FrmPrincipal extends JFrame {
 		pnlDept.add(lblDepartamentos);
 		
 		tblDept = new JTable();
+		tblDept.setCellSelectionEnabled(true);
+		tblDept.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tblDept.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					ctrl.CtrlPrincipal.ListenerTabla();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		tblDept.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tblDept.setBounds(30, 50, 141, 260);
+		
+
+		
 		JScrollDept = new JScrollPane(tblDept);
-		JScrollDept.setSize(135, 260);
+		JScrollDept.setSize(185, 260);
 		JScrollDept.setLocation(30, 50);
 		JScrollDept.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		pnlDept.add(JScrollDept, BorderLayout.CENTER);
@@ -106,21 +125,21 @@ public class FrmPrincipal extends JFrame {
 		
 		
 		JPanel pnlEmp = new JPanel();
-		pnlEmp.setBounds(174, 1, 518, 337);
+		pnlEmp.setBounds(239, 1, 545, 337);
 		contentPane.add(pnlEmp);
 		pnlEmp.setLayout(null);
 		
 		JLabel lblEmpleados = new JLabel("EMPLEADOS");
 		lblEmpleados.setFont(new Font("Microsoft YaHei Light", Font.BOLD, 14));
-		lblEmpleados.setBounds(20, 25, 97, 14);
+		lblEmpleados.setBounds(10, 23, 97, 14);
 		pnlEmp.add(lblEmpleados);
 		
 		tblDatos = new JTable();
 		tblDatos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tblDatos.setBounds(20, 50, 463, 260);
 		JScrollEmp = new JScrollPane(tblDatos);
-		JScrollEmp.setSize(470, 260);
-		JScrollEmp.setLocation(20, 50);
+		JScrollEmp.setSize(500, 260);
+		JScrollEmp.setLocation(10, 48);
 		JScrollEmp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		pnlEmp.add(JScrollEmp, BorderLayout.CENTER);
 				
