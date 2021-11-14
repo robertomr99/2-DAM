@@ -104,7 +104,7 @@ public class FrmPrincipal extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					ctrl.CtrlPrincipal.ListenerTabla();
+					ctrl.CtrlPrincipal.ListenerTablaDept();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -135,6 +135,20 @@ public class FrmPrincipal extends JFrame {
 		pnlEmp.add(lblEmpleados);
 		
 		tblDatos = new JTable();
+		tblDatos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			
+				try {
+					new FDInfoEmp();
+					ctrl.CtrlPrincipal.ListenerTablaEmp();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		tblDatos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tblDatos.setBounds(20, 50, 463, 260);
 		JScrollEmp = new JScrollPane(tblDatos);
