@@ -138,9 +138,8 @@ public class FrmPrincipal extends JFrame {
 		tblDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			
+				
 				try {
-					new FDInfoEmp();
 					ctrl.CtrlPrincipal.ListenerTablaEmp();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block

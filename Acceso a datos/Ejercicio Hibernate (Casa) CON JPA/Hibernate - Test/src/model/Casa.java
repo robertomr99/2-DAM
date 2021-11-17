@@ -2,13 +2,33 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CASA")
+
 public class Casa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(generator="miSecuencia")
+	@SequenceGenerator(name="miSecuencia", sequenceName="SEQ_CASA", allocationSize=1)
+	@Column(name="ID_CASA")
 	private Integer iId_Casa;
+	
+	@Column(name="CALLE")
 	private String sCalle;
+	
+	@Column(name="NUMERO")
 	private Integer iNumero;
+	
+	@Column(name="SUPERFICIE")
 	private Double dSuperficie;
 	
 	

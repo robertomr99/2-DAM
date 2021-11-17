@@ -22,6 +22,6 @@
 		
 		<!-- Mapping file -->
 		<!-- Tantos archivos mapping como objetos haya -->
-		<mapping class="model.Casa"/>
+		<mapping resource="mapping/casa.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

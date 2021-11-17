@@ -2,6 +2,7 @@ package ctrl;
 
 import javax.swing.table.DefaultTableModel;
 import model.DBLogin;
+import view.JDInfoEmp;
 
 public class CtrlPrincipal {
 
@@ -51,12 +52,13 @@ public class CtrlPrincipal {
 	}
 	
 	public static void ListenerTablaEmp() throws Exception {
-		view.FDInfoEmp.lblNombre.setText("Nombre: "+logic.LogGeneral.getInfoEmp().getsEname());
-		view.FDInfoEmp.lblOficio.setText("Oficio: "+logic.LogGeneral.getInfoEmp().getsJob());
-		view.FDInfoEmp.lblSalario.setText("Salario: "+logic.LogGeneral.getInfoEmp().getiSal());
-		view.FDInfoEmp.lblC.setText("Comisión: "+logic.LogGeneral.getInfoEmp().getiComm());
-		view.FDInfoEmp.lblFechaAlta.setText("Fecha de Alta: "+logic.LogGeneral.getInfoEmp().getsFechaAlta());
-		view.FDInfoEmp.lblJefe.setText("Jefe: "+logic.LogGeneral.getInfoEmp().getsEnameBoss());
+		new JDInfoEmp();
+		view.JDInfoEmp.lblResNombre.setText(logic.LogGeneral.getInfoEmp().getsEname());
+		view.JDInfoEmp.lblResOficio.setText(logic.LogGeneral.getInfoEmp().getsJob());
+		view.JDInfoEmp.lblResSal.setText(""+logic.LogGeneral.getInfoEmp().getiSal());
+		view.JDInfoEmp.lblResC.setText(""+logic.LogGeneral.getInfoEmp().getiComm());
+		view.JDInfoEmp.lblResFechaAlta.setText(logic.LogGeneral.getInfoEmp().getsFechaAlta());
+		view.JDInfoEmp.lblResJefe.setText(logic.LogGeneral.getInfoEmp().getsEnameBoss());
 	}
 
 	public static String deptSeleccionada() {
