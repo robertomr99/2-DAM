@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CHALECOS>
+    <CHALECO>
+        <ID_CHALECO>1</ID_CHALECO>
+        <MODELO>Pana</MODELO>
+        <COLOR>1</COLOR>
+        <TALLA>1</TALLA>
+        <PRECIO>12.45</PRECIO>
+        <STOCK>3</STOCK>
+    </CHALECO>
+    <CHALECO>
+        <ID_CHALECO>2</ID_CHALECO>
+        <MODELO>Prueba</MODELO>
+        <COLOR>2</COLOR>
+        <TALLA>1</TALLA>
+        <PRECIO>5</PRECIO>
+        <STOCK>10</STOCK>
+    </CHALECO>
+    <CHALECO>
+        <ID_CHALECO>3</ID_CHALECO>
+        <MODELO>prueba34</MODELO>
+        <COLOR>2</COLOR>
+        <TALLA>1</TALLA>
+        <PRECIO>5</PRECIO>
+        <STOCK>54</STOCK>
+    </CHALECO>
+</CHALECOS>

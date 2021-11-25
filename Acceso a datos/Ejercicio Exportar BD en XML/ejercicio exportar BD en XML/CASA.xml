@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CASAS>
+    <CASA>
+        <ID_CASA>21</ID_CASA>
+        <CALLE>Calle Itaca</CALLE>
+        <NUMERO>22</NUMERO>
+        <SUPERFICIE>122.23</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>22</ID_CASA>
+        <CALLE>Calle Lujos</CALLE>
+        <NUMERO>12</NUMERO>
+        <SUPERFICIE>200</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>23</ID_CASA>
+        <CALLE>Calle Madriles</CALLE>
+        <NUMERO>13</NUMERO>
+        <SUPERFICIE>100.7</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>24</ID_CASA>
+        <CALLE>Calle Jurel</CALLE>
+        <NUMERO>2</NUMERO>
+        <SUPERFICIE>150</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>1</ID_CASA>
+        <CALLE>Calle Itaca</CALLE>
+        <NUMERO>22</NUMERO>
+        <SUPERFICIE>122.23</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>2</ID_CASA>
+        <CALLE>Calle Lujos</CALLE>
+        <NUMERO>12</NUMERO>
+        <SUPERFICIE>200</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>3</ID_CASA>
+        <CALLE>Calle Madriles</CALLE>
+        <NUMERO>13</NUMERO>
+        <SUPERFICIE>100.7</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>4</ID_CASA>
+        <CALLE>Calle Jurel</CALLE>
+        <NUMERO>2</NUMERO>
+        <SUPERFICIE>150</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>5</ID_CASA>
+        <CALLE>Calle Itaca</CALLE>
+        <NUMERO>22</NUMERO>
+        <SUPERFICIE>122.23</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>6</ID_CASA>
+        <CALLE>Calle Lujos</CALLE>
+        <NUMERO>12</NUMERO>
+        <SUPERFICIE>200</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>7</ID_CASA>
+        <CALLE>Calle Madriles</CALLE>
+        <NUMERO>13</NUMERO>
+        <SUPERFICIE>100.7</SUPERFICIE>
+    </CASA>
+    <CASA>
+        <ID_CASA>8</ID_CASA>
+        <CALLE>Calle Jurel</CALLE>
+        <NUMERO>2</NUMERO>
+        <SUPERFICIE>150</SUPERFICIE>
+    </CASA>
+</CASAS>

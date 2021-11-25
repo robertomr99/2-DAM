@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<COCHES>
+    <COCHE>
+        <ID_COCHE>28</ID_COCHE>
+        <MARCA>AUDI</MARCA>
+        <MODELO>A6</MODELO>
+        <POTENCIA>2000</POTENCIA>
+    </COCHE>
+    <COCHE>
+        <ID_COCHE>29</ID_COCHE>
+        <MARCA>Seat</MARCA>
+        <MODELO>Leon</MODELO>
+        <POTENCIA>1300</POTENCIA>
+    </COCHE>
+    <COCHE>
+        <ID_COCHE>27</ID_COCHE>
+        <MARCA>SEAT</MARCA>
+        <MODELO>IBIZA</MODELO>
+        <POTENCIA>1900</POTENCIA>
+    </COCHE>
+</COCHES>
