@@ -47,6 +47,7 @@ public class DBoracle {
 			closeConn();
 			boExito = true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			boExito = false;
 		}
 

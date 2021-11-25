@@ -105,11 +105,14 @@ public class GestionXML {
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 	}
+	
+	
 
 	/// Solo devolvemos esta que tiene todo el contenido
 

@@ -1,13 +1,12 @@
 package start;
 
-import logic.Logic;
+import logic.LogicTablas;
 
 public class Start {
 
 	public static void main(String[] args) throws Exception {
 	
-		ctrl.CtrlPrincipal.crearXML();
-		
+		ctrl.CtrlPrincipal.inicio();
 
 	}
 

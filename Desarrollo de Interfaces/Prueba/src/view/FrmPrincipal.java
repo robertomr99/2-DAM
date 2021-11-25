@@ -31,7 +31,7 @@ public class FrmPrincipal extends JFrame {
 
 		setVisible(true);
 
-	/*	this.addKeyListener(new KeyAdapter() {
+		this.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_DOWN:
@@ -56,10 +56,10 @@ public class FrmPrincipal extends JFrame {
 
 		});
 		
-		*/
 		
 		
-		this.addKeyListener(new KeyAdapter() {
+		
+		/*	this.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				
 				try {
